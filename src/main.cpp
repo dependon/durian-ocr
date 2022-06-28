@@ -90,14 +90,6 @@ int main(int argc, char *argv[])
 
     OcrApplication* instance = OcrApplication::instance();
     QDBusConnection dbus = QDBusConnection::sessionBus();
-    if (argc < 2) {
-        qDebug() << "Cant open a null file";
-//        return 0;
-        ControlWidget* widget =new ControlWidget();
-        widget->resize(800,600);
-        widget->show();
-        widget->move(qApp->desktop()->screen()->rect().center() - widget->rect().center());
-    }
     if (dbus.registerService("com.durian.Ocr")) {
         // 第一次启动
         // 注册Dbus服务和对象
@@ -111,7 +103,12 @@ int main(int argc, char *argv[])
             return app.exec();
         }
 
-        instance->openFile(QString(argv[1]));
+        if(!instance->openFile(QString(argv[1]))){
+            ControlWidget* widget =new ControlWidget();
+            widget->resize(800,600);
+            widget->show();
+            widget->move(qApp->desktop()->screen()->rect().center() - widget->rect().center());
+        }
     } else {
         // 第二次运行此应用，
         // 调用DBus接口，处理交给第一次调用的进程

@@ -2,40 +2,47 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="hi_IN">
 <context>
+    <name>ControlWidget</name>
+    <message>
+        <location filename="../src/controlwidget.cpp" line="8"/>
+        <source>open Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWidget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="166"/>
+        <location filename="../src/mainwidget.cpp" line="169"/>
         <source>No text recognized</source>
         <translation>लेख की पहचान करना विफल</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="214"/>
+        <location filename="../src/mainwidget.cpp" line="217"/>
         <source>Copy text</source>
         <translation>लेख कॉपी करें</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="221"/>
+        <location filename="../src/mainwidget.cpp" line="224"/>
         <source>Save as TXT</source>
         <translation>TXT के रूप में संचित करें</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="273"/>
-        <location filename="../src/mainwidget.cpp" line="314"/>
+        <location filename="../src/mainwidget.cpp" line="276"/>
+        <location filename="../src/mainwidget.cpp" line="317"/>
+        <location filename="../src/mainwidget.cpp" line="318"/>
         <source>Recognizing</source>
         <translation>पहचानना जारी</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="514"/>
         <source>Copied</source>
-        <translation>कॉपी करना सफल</translation>
+        <translation type="vanished">कॉपी करना सफल</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="75"/>
         <source>OCR Tool</source>
-        <translation>ओसीआर साधन</translation>
+        <translation type="vanished">ओसीआर साधन</translation>
     </message>
 </context>
 <context>
@@ -64,7 +71,7 @@
 <context>
     <name>Widget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="262"/>
+        <location filename="../src/mainwidget.cpp" line="265"/>
         <source>Tips: The clearer the image is, the more accurate the text is</source>
         <translation>सहायक निर्देश : चित्र गुणवत्ता उच्च होने पर पहचाना गया लेख भी सटीक होगा</translation>
     </message>

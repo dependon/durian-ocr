@@ -2,39 +2,35 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="es_419">
 <context>
-    <name>MainWidget</name>
+    <name>ControlWidget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="166"/>
-        <source>No text recognized</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/mainwidget.cpp" line="214"/>
-        <source>Copy text</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/mainwidget.cpp" line="221"/>
-        <source>Save as TXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/mainwidget.cpp" line="273"/>
-        <location filename="../src/mainwidget.cpp" line="314"/>
-        <source>Recognizing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/mainwidget.cpp" line="514"/>
-        <source>Copied</source>
+        <location filename="../src/controlwidget.cpp" line="8"/>
+        <source>open Image</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>QObject</name>
+    <name>MainWidget</name>
     <message>
-        <location filename="../src/main.cpp" line="75"/>
-        <source>OCR Tool</source>
+        <location filename="../src/mainwidget.cpp" line="169"/>
+        <source>No text recognized</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwidget.cpp" line="217"/>
+        <source>Copy text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwidget.cpp" line="224"/>
+        <source>Save as TXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwidget.cpp" line="276"/>
+        <location filename="../src/mainwidget.cpp" line="317"/>
+        <location filename="../src/mainwidget.cpp" line="318"/>
+        <source>Recognizing</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -64,7 +60,7 @@
 <context>
     <name>Widget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="262"/>
+        <location filename="../src/mainwidget.cpp" line="265"/>
         <source>Tips: The clearer the image is, the more accurate the text is</source>
         <translation type="unfinished"></translation>
     </message>

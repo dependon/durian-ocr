@@ -2,40 +2,47 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="sq">
 <context>
+    <name>ControlWidget</name>
+    <message>
+        <location filename="../src/controlwidget.cpp" line="8"/>
+        <source>open Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWidget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="166"/>
+        <location filename="../src/mainwidget.cpp" line="169"/>
         <source>No text recognized</source>
         <translation>S’u kuptua gjë si tekst</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="214"/>
+        <location filename="../src/mainwidget.cpp" line="217"/>
         <source>Copy text</source>
         <translation>Kopjoje tekstin</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="221"/>
+        <location filename="../src/mainwidget.cpp" line="224"/>
         <source>Save as TXT</source>
         <translation>Ruaje si TXT</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="273"/>
-        <location filename="../src/mainwidget.cpp" line="314"/>
+        <location filename="../src/mainwidget.cpp" line="276"/>
+        <location filename="../src/mainwidget.cpp" line="317"/>
+        <location filename="../src/mainwidget.cpp" line="318"/>
         <source>Recognizing</source>
         <translation>Po kuptohet</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="514"/>
         <source>Copied</source>
-        <translation>U kopjua</translation>
+        <translation type="vanished">U kopjua</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="75"/>
         <source>OCR Tool</source>
-        <translation>MJET OCR</translation>
+        <translation type="vanished">MJET OCR</translation>
     </message>
 </context>
 <context>
@@ -64,7 +71,7 @@
 <context>
     <name>Widget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="262"/>
+        <location filename="../src/mainwidget.cpp" line="265"/>
         <source>Tips: The clearer the image is, the more accurate the text is</source>
         <translation>Ndihmëz: Sa më e qartë figura, aq më i përpiktë është teksti</translation>
     </message>

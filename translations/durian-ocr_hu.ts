@@ -2,40 +2,47 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="hu">
 <context>
+    <name>ControlWidget</name>
+    <message>
+        <location filename="../src/controlwidget.cpp" line="8"/>
+        <source>open Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWidget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="166"/>
+        <location filename="../src/mainwidget.cpp" line="169"/>
         <source>No text recognized</source>
         <translation>Nincs felismerhető szöveg</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="214"/>
+        <location filename="../src/mainwidget.cpp" line="217"/>
         <source>Copy text</source>
         <translation>Szöveg másolása</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="221"/>
+        <location filename="../src/mainwidget.cpp" line="224"/>
         <source>Save as TXT</source>
         <translation>Mentés TXT formátumban</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="273"/>
-        <location filename="../src/mainwidget.cpp" line="314"/>
+        <location filename="../src/mainwidget.cpp" line="276"/>
+        <location filename="../src/mainwidget.cpp" line="317"/>
+        <location filename="../src/mainwidget.cpp" line="318"/>
         <source>Recognizing</source>
         <translation>Felismerés...</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="514"/>
         <source>Copied</source>
-        <translation>Másolva</translation>
+        <translation type="vanished">Másolva</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="75"/>
         <source>OCR Tool</source>
-        <translation>OCR Eszköz</translation>
+        <translation type="vanished">OCR Eszköz</translation>
     </message>
 </context>
 <context>
@@ -64,7 +71,7 @@
 <context>
     <name>Widget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="262"/>
+        <location filename="../src/mainwidget.cpp" line="265"/>
         <source>Tips: The clearer the image is, the more accurate the text is</source>
         <translation>Tippek: Minél tisztább a kép, annál pontosabb a szöveg felismerése</translation>
     </message>

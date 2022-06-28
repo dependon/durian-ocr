@@ -2,40 +2,47 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="bo">
 <context>
+    <name>ControlWidget</name>
+    <message>
+        <location filename="../src/controlwidget.cpp" line="8"/>
+        <source>open Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWidget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="166"/>
+        <location filename="../src/mainwidget.cpp" line="169"/>
         <source>No text recognized</source>
         <translation>ཡི་གེ་ངོས་ཟིན་མ་ཐུབ།</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="214"/>
+        <location filename="../src/mainwidget.cpp" line="217"/>
         <source>Copy text</source>
         <translation>ཡི་གེ་པར་སློག</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="221"/>
+        <location filename="../src/mainwidget.cpp" line="224"/>
         <source>Save as TXT</source>
         <translation>TXTལ་ཉར་བ།</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="273"/>
-        <location filename="../src/mainwidget.cpp" line="314"/>
+        <location filename="../src/mainwidget.cpp" line="276"/>
+        <location filename="../src/mainwidget.cpp" line="317"/>
+        <location filename="../src/mainwidget.cpp" line="318"/>
         <source>Recognizing</source>
         <translation>དབྱེ་བ་འབྱེད་བཞིན་པ།</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="514"/>
         <source>Copied</source>
-        <translation>པར་བསློགས།</translation>
+        <translation type="vanished">པར་བསློགས།</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="75"/>
         <source>OCR Tool</source>
-        <translation>པར་རིས་དབྱེ་འབྱེད་ཡོ་བྱད།</translation>
+        <translation type="vanished">པར་རིས་དབྱེ་འབྱེད་ཡོ་བྱད།</translation>
     </message>
 </context>
 <context>
@@ -64,7 +71,7 @@
 <context>
     <name>Widget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="262"/>
+        <location filename="../src/mainwidget.cpp" line="265"/>
         <source>Tips: The clearer the image is, the more accurate the text is</source>
         <translation>མཛའ་བརྩེའི་དྲན་སྐུལ། པར་རིས་གང་ཙམ་གྱིས་སྟབས་བདེ་བ་དང་གསལ་བ་ཡོད་ཚེ། དབྱེ་འབྱེད་ཀྱང་དེ་ཙམ་གྱིས་ཡང་དག་པ་ཡོད།</translation>
     </message>

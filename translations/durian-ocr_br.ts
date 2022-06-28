@@ -2,13 +2,16 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="br">
 <context>
+    <name>ControlWidget</name>
+    <message>
+        <source>open Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWidget</name>
     <message>
         <source>Recognizing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Copied</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -21,13 +24,6 @@
     </message>
     <message>
         <source>Save as TXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>QObject</name>
-    <message>
-        <source>OCR Tool</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

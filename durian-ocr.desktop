@@ -1,12 +1,11 @@
 [Desktop Entry]
 Categories=Ocr;
 Comment=Durian ocr
-#Exec=/usr/bin/deepin-ocr %F
+Exec=durian-ocr %F
 GenericName=durian cor
 Icon=durian-ocr
 Name=durian Ocr
 Type=Application
-NoDisplay=true
 
 # Translations:
 # Do not manually modify!

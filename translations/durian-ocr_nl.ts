@@ -2,40 +2,47 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="nl">
 <context>
+    <name>ControlWidget</name>
+    <message>
+        <location filename="../src/controlwidget.cpp" line="8"/>
+        <source>open Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWidget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="166"/>
+        <location filename="../src/mainwidget.cpp" line="169"/>
         <source>No text recognized</source>
         <translation>Er is geen tekst aangetroffen</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="214"/>
+        <location filename="../src/mainwidget.cpp" line="217"/>
         <source>Copy text</source>
         <translation>Tekst kopiëren</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="221"/>
+        <location filename="../src/mainwidget.cpp" line="224"/>
         <source>Save as TXT</source>
         <translation>Opslaan als txt-bestand</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="273"/>
-        <location filename="../src/mainwidget.cpp" line="314"/>
+        <location filename="../src/mainwidget.cpp" line="276"/>
+        <location filename="../src/mainwidget.cpp" line="317"/>
+        <location filename="../src/mainwidget.cpp" line="318"/>
         <source>Recognizing</source>
         <translation>Bezig met herkennen…</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="514"/>
         <source>Copied</source>
-        <translation>Gekopieerd</translation>
+        <translation type="vanished">Gekopieerd</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="75"/>
         <source>OCR Tool</source>
-        <translation>OCR-hulpmiddel</translation>
+        <translation type="vanished">OCR-hulpmiddel</translation>
     </message>
 </context>
 <context>
@@ -64,7 +71,7 @@
 <context>
     <name>Widget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="262"/>
+        <location filename="../src/mainwidget.cpp" line="265"/>
         <source>Tips: The clearer the image is, the more accurate the text is</source>
         <translation>Tip: gebruik een heldere afbeelding zodat de tekst goed leesbaar is</translation>
     </message>
