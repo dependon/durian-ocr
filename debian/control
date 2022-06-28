@@ -1,13 +1,13 @@
-Source: deepin-ocr
+Source: durian-ocr
 Section: utils
 Priority: optional
-Maintainer: Deepin Packages Builder <packages@deepin.com>
-Build-Depends: debhelper (>= 11), cmake, qtbase5-dev, pkg-config,libdtkwidget-dev,qttools5-dev-tools,qttools5-dev
+Maintainer: Liuminghang
+Build-Depends: debhelper (>= 11), cmake, qtbase5-dev, pkg-config,qttools5-dev-tools,qttools5-dev
 Standards-Version: 4.1.3
 Homepage: http://www.deepin.org/
 
-Package: deepin-ocr
+Package: durian-ocr
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Ocr for UOS
+Description: Ocr for no dtk
  Ocr is a text recognition software.
