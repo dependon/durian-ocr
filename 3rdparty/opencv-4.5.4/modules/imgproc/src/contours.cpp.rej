@@ -1,0 +1,23 @@
+--- modules/imgproc/src/contours.cpp	2021-10-09 08:48:26.000000000 +0800
++++ modules/imgproc/src/contours.cpp	2021-11-24 11:00:30.812463640 +0800
+@@ -1762,7 +1762,6 @@ cvFindContours_Impl( void*  img,  CvMemS
+     }
+     else
+     {
+-        try
+         {
+             scanner = cvStartFindContours_Impl( img, storage, cntHeaderSize, mode, method, offset,
+                                             needFillBorder);
+@@ -1774,12 +1773,6 @@ cvFindContours_Impl( void*  img,  CvMemS
+             }
+             while( contour != 0 );
+         }
+-        catch(...)
+-        {
+-            if( scanner )
+-                cvEndFindContours(&scanner);
+-            throw;
+-        }
+ 
+         *firstContour = cvEndFindContours( &scanner );
+     }

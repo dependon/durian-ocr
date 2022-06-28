@@ -1,0 +1,82 @@
+--- modules/core/src/bindings_utils.cpp	2021-10-09 08:48:26.000000000 +0800
++++ modules/core/src/bindings_utils.cpp	2021-11-24 11:00:30.809463640 +0800
+@@ -17,7 +17,7 @@ String dumpInputArray(InputArray argumen
+         return "InputArray: noArray()";
+     std::ostringstream ss;
+     ss << "InputArray:";
+-    try {
++    {
+         do {
+             ss << (argument.empty() ? " empty()=true" : " empty()=false");
+             ss << cv::format(" kind=0x%08llx", (long long int)argument.kind());
+@@ -51,10 +51,6 @@ String dumpInputArray(InputArray argumen
+             ss << " type(-1)=" << cv::typeToString(argument.type(-1));
+         } while (0);
+     }
+-    catch (...)
+-    {
+-        ss << " ERROR: exception occurred, dump is non-complete";  // need to properly support different kinds
+-    }
+     return ss.str();
+ }
+ 
+@@ -64,7 +60,7 @@ CV_EXPORTS_W String dumpInputArrayOfArra
+         return "InputArrayOfArrays: noArray()";
+     std::ostringstream ss;
+     ss << "InputArrayOfArrays:";
+-    try {
++    {
+         do {
+             ss << (argument.empty() ? " empty()=true" : " empty()=false");
+             ss << cv::format(" kind=0x%08llx", (long long int)argument.kind());
+@@ -104,10 +100,6 @@ CV_EXPORTS_W String dumpInputArrayOfArra
+             }
+         } while (0);
+     }
+-    catch (...)
+-    {
+-        ss << " ERROR: exception occurred, dump is non-complete";  // need to properly support different kinds
+-    }
+     return ss.str();
+ }
+ 
+@@ -117,7 +109,7 @@ CV_EXPORTS_W String dumpInputOutputArray
+         return "InputOutputArray: noArray()";
+     std::ostringstream ss;
+     ss << "InputOutputArray:";
+-    try {
++    {
+         do {
+             ss << (argument.empty() ? " empty()=true" : " empty()=false");
+             ss << cv::format(" kind=0x%08llx", (long long int)argument.kind());
+@@ -151,10 +143,6 @@ CV_EXPORTS_W String dumpInputOutputArray
+             ss << " type(-1)=" << cv::typeToString(argument.type(-1));
+         } while (0);
+     }
+-    catch (...)
+-    {
+-        ss << " ERROR: exception occurred, dump is non-complete";  // need to properly support different kinds
+-    }
+     return ss.str();
+ }
+ 
+@@ -164,7 +152,7 @@ CV_EXPORTS_W String dumpInputOutputArray
+         return "InputOutputArrayOfArrays: noArray()";
+     std::ostringstream ss;
+     ss << "InputOutputArrayOfArrays:";
+-    try {
++    {
+         do {
+             ss << (argument.empty() ? " empty()=true" : " empty()=false");
+             ss << cv::format(" kind=0x%08llx", (long long int)argument.kind());
+@@ -204,10 +192,6 @@ CV_EXPORTS_W String dumpInputOutputArray
+             }
+         } while (0);
+     }
+-    catch (...)
+-    {
+-        ss << " ERROR: exception occurred, dump is non-complete";  // need to properly support different kinds
+-    }
+     return ss.str();
+ }
+ 

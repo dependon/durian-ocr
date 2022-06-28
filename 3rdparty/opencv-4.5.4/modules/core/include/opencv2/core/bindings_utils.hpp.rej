@@ -1,0 +1,30 @@
+--- modules/core/include/opencv2/core/bindings_utils.hpp	2021-10-09 08:48:26.000000000 +0800
++++ modules/core/include/opencv2/core/bindings_utils.hpp	2021-11-24 11:00:30.806463640 +0800
+@@ -176,12 +176,6 @@ void generateVectorOfMat(size_t len, int
+ }
+ 
+ CV_WRAP static inline
+-void testRaiseGeneralException()
+-{
+-    throw std::runtime_error("exception text");
+-}
+-
+-CV_WRAP static inline
+ AsyncArray testAsyncArray(InputArray argument)
+ {
+     AsyncPromise p;
+@@ -193,14 +187,6 @@ CV_WRAP static inline
+ AsyncArray testAsyncException()
+ {
+     AsyncPromise p;
+-    try
+-    {
+-        CV_Error(Error::StsOk, "Test: Generated async error");
+-    }
+-    catch (const cv::Exception& e)
+-    {
+-        p.setException(e);
+-    }
+     return p.getArrayResult();
+ }
+ 

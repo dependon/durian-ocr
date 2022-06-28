@@ -1,0 +1,14 @@
+--- modules/core/src/ocl_disabled.impl.hpp	2021-10-09 08:48:26.000000000 +0800
++++ modules/core/src/ocl_disabled.impl.hpp	2021-11-24 11:00:30.810463640 +0800
+@@ -177,11 +177,6 @@ void* Context::getOpenCLContextProperty(
+ bool Context::useSVM() const { return false; }
+ void Context::setUseSVM(bool enabled) { }
+ 
+-Context::UserContext::~UserContext() { }
+-
+-void Context::setUserContext(std::type_index /*typeId*/, const std::shared_ptr<Context::UserContext>& /*userContext*/) { OCL_NOT_AVAILABLE(); }
+-std::shared_ptr<Context::UserContext> Context::getUserContext(std::type_index /*typeId*/) { OCL_NOT_AVAILABLE(); }
+-
+ /* static */ Context Context::fromHandle(void* context) { OCL_NOT_AVAILABLE(); }
+ /* static */ Context Context::fromDevice(const ocl::Device& device) { OCL_NOT_AVAILABLE(); }
+ /* static */ Context Context::create(const std::string& configuration) { OCL_NOT_AVAILABLE(); }

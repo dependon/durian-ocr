@@ -1,0 +1,42 @@
+--- modules/core/src/persistence.cpp	2021-10-09 08:48:26.000000000 +0800
++++ modules/core/src/persistence.cpp	2021-11-24 11:05:14.808459233 +0800
+@@ -687,7 +687,7 @@ bool FileStorage::Impl::open(const char
+         strbufpos = bufOffset;
+         bufofs = 0;
+ 
+-        try {
++        {
+             char *ptr = bufferStart();
+             ptr[0] = ptr[1] = ptr[2] = '\0';
+             FileNode root_nodes(fs_ext, 0, 0);
+@@ -728,11 +728,6 @@ bool FileStorage::Impl::open(const char
+                 }
+             }
+         }
+-        catch (...) {
+-            is_opened = true;
+-            release();
+-            throw;
+-        }
+ 
+         // release resources that we do not need anymore
+         closeFile();
+@@ -1865,18 +1860,12 @@ FileStorage::~FileStorage()
+ 
+ bool FileStorage::open(const String& filename, int flags, const String& encoding)
+ {
+-    try
+     {
+         bool ok = p->open(filename.c_str(), flags, encoding.c_str());
+         if(ok)
+             state = FileStorage::NAME_EXPECTED + FileStorage::INSIDE_MAP;
+         return ok;
+     }
+-    catch (...)
+-    {
+-        release();
+-        throw;  // re-throw
+-    }
+ }
+ 
+ bool FileStorage::isOpened() const { return p->is_opened; }

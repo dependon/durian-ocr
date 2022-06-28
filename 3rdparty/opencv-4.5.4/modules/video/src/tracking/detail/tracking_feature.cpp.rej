@@ -1,0 +1,18 @@
+--- modules/video/src/tracking/detail/tracking_feature.cpp	2021-10-09 08:48:26.000000000 +0800
++++ modules/video/src/tracking/detail/tracking_feature.cpp	2021-11-24 11:00:30.812463640 +0800
+@@ -107,15 +107,9 @@ void CvHaarEvaluator::generateFeatures(i
+ 
+ CvHaarEvaluator::FeatureHaar::FeatureHaar(Size patchSize)
+ {
+-    try
+     {
+         generateRandomFeature(patchSize);
+     }
+-    catch (...)
+-    {
+-        // FIXIT
+-        throw;
+-    }
+ }
+ 
+ void CvHaarEvaluator::FeatureHaar::generateRandomFeature(Size patchSize)

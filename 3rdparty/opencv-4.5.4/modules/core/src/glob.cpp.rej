@@ -1,0 +1,22 @@
+--- modules/core/src/glob.cpp	2021-10-09 08:48:26.000000000 +0800
++++ modules/core/src/glob.cpp	2021-11-24 11:00:30.809463640 +0800
+@@ -243,7 +243,6 @@ static void glob_rec(const cv::String& d
+     if ((dir = opendir (directory.c_str())) != 0)
+     {
+         /* find all the files and directories within directory */
+-        try
+         {
+             struct dirent *ent;
+             while ((ent = readdir (dir)) != 0)
+@@ -267,11 +266,6 @@ static void glob_rec(const cv::String& d
+                     result.push_back(entry);
+             }
+         }
+-        catch (...)
+-        {
+-            closedir(dir);
+-            throw;
+-        }
+         closedir(dir);
+     }
+     else

@@ -1,0 +1,37 @@
+--- modules/core/src/parallel/plugin_parallel_wrapper.impl.hpp	2021-10-09 08:48:26.000000000 +0800
++++ modules/core/src/parallel/plugin_parallel_wrapper.impl.hpp	2021-11-24 11:00:30.810463640 +0800
+@@ -155,15 +155,10 @@ protected:
+     void initBackend()
+     {
+         AutoLock lock(getInitializationMutex());
+-        try
+         {
+             if (!initialized)
+                 loadPlugin();
+         }
+-        catch (...)
+-        {
+-            CV_LOG_INFO(NULL, "core(parallel): exception during plugin loading: " << baseName_ << ". SKIP");
+-        }
+         initialized = true;
+     }
+     void loadPlugin();
+@@ -243,7 +238,6 @@ void PluginParallelBackendFactory::loadP
+         {
+             continue;
+         }
+-        try
+         {
+             auto pluginBackend = std::make_shared<PluginParallelBackend>(lib);
+             if (!pluginBackend)
+@@ -264,10 +258,6 @@ void PluginParallelBackendFactory::loadP
+             backend = pluginBackend;
+             return;
+         }
+-        catch (...)
+-        {
+-            CV_LOG_WARNING(NULL, "core(parallel): exception during plugin initialization: " << toPrintablePath(plugin) << ". SKIP");
+-        }
+     }
+ }
+ 

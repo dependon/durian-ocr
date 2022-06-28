@@ -1,0 +1,61 @@
+--- modules/core/src/system.cpp	2021-10-09 08:48:26.000000000 +0800
++++ modules/core/src/system.cpp	2021-11-24 11:00:30.811463640 +0800
+@@ -1175,7 +1175,6 @@ void error( const Exception& exc )
+         *p = 0;
+     }
+ 
+-    throw exc;
+ #ifdef __GNUC__
+ # if !defined __clang__ && !defined __APPLE__
+     // this suppresses this warning: "noreturn" function does return [enabled by default]
+@@ -1981,15 +1980,9 @@ void* TLSDataContainer::getData() const
+     {
+         // Create new data instance and save it to TLS storage
+         pData = createDataInstance();
+-        try
+         {
+             getTlsStorage().setData(key_, pData);
+         }
+-        catch (...)
+-        {
+-            deleteDataInstance(pData);
+-            throw;
+-        }
+     }
+     return pData;
+ }
+@@ -2093,7 +2086,7 @@ inline bool parseOption(const std::strin
+     {
+         return false;
+     }
+-    throw ParseError(value);
++    return false;
+ }
+ 
+ template<>
+@@ -2114,7 +2107,7 @@ inline size_t parseOption(const std::str
+         return v * 1024 * 1024;
+     else if (suffixStr == "KB" || suffixStr == "Kb" || suffixStr == "kb")
+         return v * 1024;
+-    throw ParseError(value);
++    return v;
+ }
+ 
+ template<>
+@@ -2157,16 +2150,11 @@ static inline const char * envRead(const
+ template<typename T>
+ inline T read(const std::string & k, const T & defaultValue)
+ {
+-    try
+     {
+         const char * res = envRead(k.c_str());
+         if (res)
+             return parseOption<T>(std::string(res));
+     }
+-    catch (const ParseError &err)
+-    {
+-        CV_Error(cv::Error::StsBadArg, err.toString(k));
+-    }
+     return defaultValue;
+ }
+ 

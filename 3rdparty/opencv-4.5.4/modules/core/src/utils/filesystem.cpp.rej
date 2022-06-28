@@ -1,0 +1,17 @@
+--- modules/core/src/utils/filesystem.cpp	2021-10-09 08:48:26.000000000 +0800
++++ modules/core/src/utils/filesystem.cpp	2021-11-24 11:00:30.811463640 +0800
+@@ -508,14 +508,9 @@ cv::String getCacheDirectory(const char*
+                     && !utils::fs::isDirectory(default_cache_path))
+                 {
+                     std::vector<cv::String> existedCacheDirs;
+-                    try
+                     {
+                         utils::fs::glob_relative(default_cache_path_base, "*", existedCacheDirs, false, true);
+                     }
+-                    catch (...)
+-                    {
+-                        // ignore
+-                    }
+                     if (!existedCacheDirs.empty())
+                     {
+                         CV_LOG_WARNING(NULL, "Creating new OpenCV cache directory: " << default_cache_path);

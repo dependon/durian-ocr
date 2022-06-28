@@ -1,0 +1,25 @@
+--- modules/core/src/parallel/parallel.cpp	2021-10-09 08:48:26.000000000 +0800
++++ modules/core/src/parallel/parallel.cpp	2021-11-24 11:00:30.810463640 +0800
+@@ -60,7 +60,6 @@ std::shared_ptr<ParallelForAPI> createPa
+             }
+             isKnown = true;
+         }
+-        try
+         {
+             CV_LOG_DEBUG(NULL, "core(parallel): trying backend: " << info.name << " (priority=" << info.priority << ")");
+             if (!info.backendFactory)
+@@ -79,14 +78,6 @@ std::shared_ptr<ParallelForAPI> createPa
+             getParallelBackendName() = info.name;
+             return backend;
+         }
+-        catch (const std::exception& e)
+-        {
+-            CV_LOG_WARNING(NULL, "core(parallel): can't initialize " << info.name << " backend: " << e.what());
+-        }
+-        catch (...)
+-        {
+-            CV_LOG_WARNING(NULL, "core(parallel): can't initialize " << info.name << " backend: Unknown C++ exception");
+-        }
+     }
+     if (name.empty())
+     {
