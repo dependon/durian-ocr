@@ -12,6 +12,7 @@
 #include <QMutex>
 
 #include <QToolButton>
+#include <QComboBox>
 
 #include "resulttextview.h"
 
@@ -66,6 +67,7 @@ private slots:
 
     void slotCopy();
     void slotExport();
+    void onCurrentTextChanged(const QString & text);
 
 //    void change()
 private:
@@ -77,6 +79,8 @@ private:
     QLabel *m_tiplabel{nullptr};
     QToolButton *m_copyBtn{nullptr};
     QToolButton *m_exportBtn{nullptr};
+    QToolButton *m_changeLauguageBtn{nullptr};
+    QComboBox *m_changeLauguageBox{nullptr};
     ImageView *m_imageview{nullptr};
 
     QHBoxLayout *m_frameLayout{nullptr};

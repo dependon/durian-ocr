@@ -140,3 +140,50 @@ QString PaddleOCRApp::getRecogitionResult(const QImage &image)
     m_isRunning = false;
     return text;
 }
+
+void PaddleOCRApp::setLanguages(PaddleOCRApp::Languages data)
+{
+
+    if (ocrDetails)
+    {
+        delete ocrDetails;
+        ocrDetails = nullptr;
+    }
+
+    //初始化识别模型路径
+    //检测模型是全语种通用，不需要初始化
+#ifdef IN_TEST
+    QString rootPath(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + "/ocr_test/testResource/");
+#else
+    QString rootPath("/usr/share/durian-ocr/model/"); //模型存放位置
+#endif
+    QString paramPath;  //模型结构文件路径
+    QString binPath;    //权重文件路径
+    QString dictPath;   //字典文件路径
+    int recOutIndex = 0;//识别模型的输出位置（需要预先确认好，然后写进程序里）
+    switch (data) {
+    case Languages::CHI_TRA: //使用繁中
+        paramPath = rootPath + "rec_chi_tra.param.bin";
+        binPath = rootPath + "rec_chi_tra.bin";
+        dictPath = "://assets/dict/dict_chi_tra.txt";
+        recOutIndex = 146;
+        break;
+    case Languages::CHI_SIM: //使用简中
+        paramPath = rootPath + "rec_chi_sim.param.bin";
+        binPath = rootPath + "rec_chi_sim.bin";
+        dictPath = "://assets/dict/dict_chi_sim.txt";
+        recOutIndex = 78;
+        break;
+    default: //使用英语
+        paramPath = rootPath + "rec_eng.param.bin";
+        binPath = rootPath + "rec_eng.bin";
+        dictPath = "://assets/dict/dict_eng.txt";
+        recOutIndex = 146;
+        break;
+    }
+
+    auto dict = loadDict(dictPath);
+
+    //初始化神经网络
+    ocrDetails = new Details(paramPath.toStdString().c_str(), binPath.toStdString().c_str(), dict, recOutIndex);
+}

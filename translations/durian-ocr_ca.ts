@@ -12,24 +12,30 @@
 <context>
     <name>MainWidget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="169"/>
+        <location filename="../src/mainwidget.cpp" line="174"/>
         <source>No text recognized</source>
         <translation>No s&apos;ha reconegut cap text.</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="217"/>
+        <location filename="../src/mainwidget.cpp" line="222"/>
         <source>Copy text</source>
         <translation>Copia el text</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="224"/>
+        <location filename="../src/mainwidget.cpp" line="229"/>
         <source>Save as TXT</source>
         <translation>Desa&apos;l com a TXT</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="276"/>
-        <location filename="../src/mainwidget.cpp" line="317"/>
-        <location filename="../src/mainwidget.cpp" line="318"/>
+        <location filename="../src/mainwidget.cpp" line="236"/>
+        <location filename="../src/mainwidget.cpp" line="237"/>
+        <source>Change Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwidget.cpp" line="292"/>
+        <location filename="../src/mainwidget.cpp" line="333"/>
+        <location filename="../src/mainwidget.cpp" line="334"/>
         <source>Recognizing</source>
         <translation>Es reconeix</translation>
     </message>
@@ -71,7 +77,7 @@
 <context>
     <name>Widget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="265"/>
+        <location filename="../src/mainwidget.cpp" line="281"/>
         <source>Tips: The clearer the image is, the more accurate the text is</source>
         <translation>Consell: com més clara és la imatge, més precís és el text.</translation>
     </message>

@@ -89,6 +89,11 @@ MainWidget::~MainWidget()
         m_tipIconLabel->deleteLater();
         m_tipIconLabel = nullptr;
     }
+    if(m_changeLauguageBox)
+    {
+        m_changeLauguageBox->deleteLater();
+        m_changeLauguageBox = nullptr;
+    }
 
 }
 
@@ -225,6 +230,29 @@ void MainWidget::setupUi(QWidget *Widget)
 
     m_buttonHorizontalLayout->addWidget(m_exportBtn);
 
+
+    //切换语言
+    m_changeLauguageBox =new QComboBox(Widget);
+    PaddleOCRApp::Languages  languages = PaddleOCRApp::instance()->getSystemLang();
+    m_changeLauguageBox->addItem("English");
+    m_changeLauguageBox->addItem("简体中文");
+    m_changeLauguageBox->addItem("繁体中文");
+
+    if (languages == PaddleOCRApp::CHI_SIM)
+    {
+        m_changeLauguageBox->setCurrentText("简体中文");
+    }
+    else if (languages == PaddleOCRApp::CHI_TRA){
+        m_changeLauguageBox->setCurrentText("繁体中文");
+    }
+    else if (languages == PaddleOCRApp::ENG){
+        m_changeLauguageBox->setCurrentText("English");
+    }
+    connect(m_changeLauguageBox,&QComboBox::currentTextChanged,this,&MainWidget::onCurrentTextChanged);
+
+    m_buttonHorizontalLayout->addWidget(m_changeLauguageBox);
+
+
 //    m_line = new DHorizontalLine(this);
 //    m_line->setObjectName(QStringLiteral("m_line"));
 
@@ -253,7 +281,9 @@ void MainWidget::setupConnect()
 //    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::paletteTypeChanged, this, &MainWidget::setIcons);
     connect(m_exportBtn, &QToolButton::clicked, this, &MainWidget::slotExport);
     connect(m_copyBtn, &QToolButton::clicked, this, &MainWidget::slotCopy);
+
     connect(this, &MainWidget::sigResult, this, [ = ](const QString & result) {
+        m_plainTextEdit->clear();
         loadString(result);
         deleteLoadingUi();
     });
@@ -397,7 +427,11 @@ void MainWidget::openImage(const QImage &img, const QString &name)
             }
         });
     }
-    connect(m_loadImagethread, &QThread::finished, m_loadImagethread, &QObject::deleteLater);
+    connect(m_loadImagethread, &QThread::finished, m_loadImagethread, [=]
+    {
+        m_loadImagethread->deleteLater();
+        m_loadImagethread=nullptr;
+    });
     m_loadImagethread->start();
 }
 
@@ -552,6 +586,22 @@ void MainWidget::slotExport()
         QTextStream out(&file);
         out << m_plainTextEdit->document()->toPlainText();
     }
+}
+
+void MainWidget::onCurrentTextChanged(const QString &text)
+{
+
+    if (text == "简体中文")
+    {
+         PaddleOCRApp::instance()->setLanguages(PaddleOCRApp::CHI_SIM);
+    }
+    else if (text == "繁体中文"){
+         PaddleOCRApp::instance()->setLanguages(PaddleOCRApp::CHI_TRA);
+    }
+    else if (text == "English"){
+         PaddleOCRApp::instance()->setLanguages(PaddleOCRApp::ENG);
+    }
+    openImage(m_imgName);
 }
 
 void MainWidget::setIcons(ColorType themeType)

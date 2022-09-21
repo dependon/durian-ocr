@@ -46,11 +46,15 @@ public:
 
     QString getRecogitionResult(const QImage &image);
 
+    void setLanguages(Languages data);
+
+    PaddleOCRApp::Languages getSystemLang();
+
 private:
     PaddleOCRApp();
     ~PaddleOCRApp();
 
-    PaddleOCRApp::Languages getSystemLang();
+
     std::vector<std::string> loadDict(const QString &dictPath);
 
     Details *ocrDetails;
