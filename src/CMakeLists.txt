@@ -36,6 +36,7 @@ set_property(TARGET opencv_world PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_LIST
 
 #for ncnn
 include_directories(../3rdparty/ncnn/build/install/include/ncnn)
+include_directories(../3rdparty/ncnn/src)
 add_library(ncnn STATIC IMPORTED)
 set_property(TARGET ncnn PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_LIST_DIR}/../3rdparty/ncnn/build/install/lib/libncnn.a)
 
@@ -68,6 +69,9 @@ if (NOT (${CMAKE_BUILD_TYPE} MATCHES "Debug"))
 endif()
 qt5_add_translation(${TargetTsFiles})
 set_source_files_properties(${qmfiles} PROPERTIES OUTPUT_LOCATION "translations")
+
+# 复制模型文件到编译目录
+file(COPY ../assets/model DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/assets)
 
 #QRC file
 set(AllQRC ../resource.qrc)
@@ -170,4 +174,7 @@ install(FILES ${LangSrcs} DESTINATION ${TranslationDir})
 install(FILES ../durian-ocr.desktop DESTINATION ${DesktopDir})
 install(FILES ../assets/durian-ocr.svg DESTINATION ${AppIconDir})
 install(FILES ../com.durian.Ocr.service DESTINATION ${DBusServiceDir})
+# 复制模型文件到编译目录
+file(COPY ../assets/model DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/assets)
+
 install(DIRECTORY ../assets/model DESTINATION ${ModelDir})

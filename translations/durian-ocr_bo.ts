@@ -27,15 +27,9 @@
         <translation>TXTལ་ཉར་བ།</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="236"/>
-        <location filename="../src/mainwidget.cpp" line="237"/>
-        <source>Change Language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/mainwidget.cpp" line="292"/>
-        <location filename="../src/mainwidget.cpp" line="333"/>
-        <location filename="../src/mainwidget.cpp" line="334"/>
+        <location filename="../src/mainwidget.cpp" line="306"/>
+        <location filename="../src/mainwidget.cpp" line="347"/>
+        <location filename="../src/mainwidget.cpp" line="348"/>
         <source>Recognizing</source>
         <translation>དབྱེ་བ་འབྱེད་བཞིན་པ།</translation>
     </message>
@@ -77,7 +71,7 @@
 <context>
     <name>Widget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="281"/>
+        <location filename="../src/mainwidget.cpp" line="295"/>
         <source>Tips: The clearer the image is, the more accurate the text is</source>
         <translation>མཛའ་བརྩེའི་དྲན་སྐུལ། པར་རིས་གང་ཙམ་གྱིས་སྟབས་བདེ་བ་དང་གསལ་བ་ཡོད་ཚེ། དབྱེ་འབྱེད་ཀྱང་དེ་ཙམ་གྱིས་ཡང་དག་པ་ཡོད།</translation>
     </message>

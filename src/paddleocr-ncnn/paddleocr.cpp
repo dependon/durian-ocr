@@ -55,6 +55,26 @@ PaddleOCRApp::Languages PaddleOCRApp::getSystemLang()
     }
 }
 
+//获取模型根目录路径
+//查找顺序：build目录(assets/model/) -> 系统安装路径(/usr/share/durian-ocr/model/)
+//注意：路径是相对于当前工作目录(CWD)解析的，CMake会把模型复制到与可执行文件同级的assets/model/下，
+//因此运行时CWD应与可执行文件所在目录一致(例如在build/src/下运行)
+QString getModelRootPath()
+{
+#ifdef IN_TEST
+    return QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + "/ocr_test/testResource/";
+#else
+    //build目录：模型由CMake复制到与可执行文件同级的assets/model/下
+    const QString buildPath("assets/model/");
+    if (QFile::exists(buildPath + "det.bin")) {
+        return buildPath;
+    }
+
+    //系统安装路径
+    return QStringLiteral("/usr/share/durian-ocr/model/");
+#endif
+}
+
 PaddleOCRApp::PaddleOCRApp()
 {
     //初始化变量
@@ -62,11 +82,7 @@ PaddleOCRApp::PaddleOCRApp()
 
     //初始化识别模型路径
     //检测模型是全语种通用，不需要初始化
-#ifdef IN_TEST
-    QString rootPath(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + "/ocr_test/testResource/");
-#else
-    QString rootPath("/usr/share/durian-ocr/model/"); //模型存放位置
-#endif
+    QString rootPath = getModelRootPath();
     QString paramPath;  //模型结构文件路径
     QString binPath;    //权重文件路径
     QString dictPath;   //字典文件路径
@@ -152,11 +168,7 @@ void PaddleOCRApp::setLanguages(PaddleOCRApp::Languages data)
 
     //初始化识别模型路径
     //检测模型是全语种通用，不需要初始化
-#ifdef IN_TEST
-    QString rootPath(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + "/ocr_test/testResource/");
-#else
-    QString rootPath("/usr/share/durian-ocr/model/"); //模型存放位置
-#endif
+    QString rootPath = getModelRootPath();
     QString paramPath;  //模型结构文件路径
     QString binPath;    //权重文件路径
     QString dictPath;   //字典文件路径

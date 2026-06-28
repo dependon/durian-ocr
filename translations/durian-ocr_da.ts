@@ -26,10 +26,6 @@
         <source>Save as TXT</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Change Language</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>ResultTextView</name>

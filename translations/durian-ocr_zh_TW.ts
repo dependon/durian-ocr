@@ -27,15 +27,9 @@
         <translation>儲存為TXT</translation>
     </message>
     <message>
-        <location filename="../src/mainwidget.cpp" line="236"/>
-        <location filename="../src/mainwidget.cpp" line="237"/>
-        <source>Change Language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/mainwidget.cpp" line="292"/>
-        <location filename="../src/mainwidget.cpp" line="333"/>
-        <location filename="../src/mainwidget.cpp" line="334"/>
+        <location filename="../src/mainwidget.cpp" line="306"/>
+        <location filename="../src/mainwidget.cpp" line="347"/>
+        <location filename="../src/mainwidget.cpp" line="348"/>
         <source>Recognizing</source>
         <translation>正在識別</translation>
     </message>
@@ -77,7 +71,7 @@
 <context>
     <name>Widget</name>
     <message>
-        <location filename="../src/mainwidget.cpp" line="281"/>
+        <location filename="../src/mainwidget.cpp" line="295"/>
         <source>Tips: The clearer the image is, the more accurate the text is</source>
         <translation>溫馨提示：圖像越簡潔清晰，識別越準確</translation>
     </message>

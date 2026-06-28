@@ -25,6 +25,10 @@
 #include "layer.h"
 #include "net.h"
 
+#include <QFile>
+#include <QString>
+#include <QDebug>
+
 #ifdef IN_TEST
 #include <QStandardPaths>
 #endif
@@ -189,15 +193,49 @@ Details::Details(const char *recParamPath, const char *recBinPath, const std::ve
     detNet->load_param_bin((QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + "/ocr_test/testResource/det.param.bin").toStdString().c_str());
     detNet->load_model((QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + "/ocr_test/testResource/det.bin").toStdString().c_str());
 #else
-    detNet->load_param_bin("/usr/share/durian-ocr/model/det.param.bin");
-    detNet->load_model("/usr/share/durian-ocr/model/det.bin");
+    // 优先使用build目录下的模型文件(与可执行文件同级的assets/model/)，
+    // 如果不存在则使用系统安装路径
+    QString buildParamPath("assets/model/det.param.bin");
+    QString buildBinPath("assets/model/det.bin");
+    QString systemParamPath("/usr/share/durian-ocr/model/det.param.bin");
+    QString systemBinPath("/usr/share/durian-ocr/model/det.bin");
+
+    if (QFile::exists(buildParamPath) && QFile::exists(buildBinPath)) {
+        detNet->load_param_bin(buildParamPath.toStdString().c_str());
+        detNet->load_model(buildBinPath.toStdString().c_str());
+    } else {
+        detNet->load_param_bin(systemParamPath.toStdString().c_str());
+        detNet->load_model(systemBinPath.toStdString().c_str());
+    }
 #endif
 
     //初始化识别网络
     recNet = new ncnn::Net;
     recNet->opt = opt;
-    recNet->load_param_bin(recParamPath);
-    recNet->load_model(recBinPath);
+
+    // 检查识别模型文件是否存在，优先级：传入路径 -> build目录
+    QString finalParamPath = recParamPath;
+    QString finalBinPath = recBinPath;
+
+    // 如果传入的文件不存在，尝试在相对路径下查找
+    if (!QFile::exists(recParamPath) || !QFile::exists(recBinPath)) {
+        QString buildParamPath = "../assets/model/" + QString(recParamPath).split("/").last();
+        QString buildBinPath = "../assets/model/" + QString(recBinPath).split("/").last();
+
+        if (QFile::exists(buildParamPath) && QFile::exists(buildBinPath)) {
+            finalParamPath = buildParamPath;
+            finalBinPath = buildBinPath;
+            qDebug() << "Using relative path model files:" << finalParamPath << finalBinPath;
+        }
+    }
+
+    // 加载识别模型
+    if (QFile::exists(finalParamPath) && QFile::exists(finalBinPath)) {
+        recNet->load_param_bin(finalParamPath.toStdString().c_str());
+        recNet->load_model(finalBinPath.toStdString().c_str());
+    } else {
+        qDebug() << "Recognition model files not found in both locations:" << finalParamPath << finalBinPath;
+    }
 
     //加载字典
     keys = dict;

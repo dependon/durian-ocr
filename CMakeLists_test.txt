@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.10)
+project(test_model_loading)
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
+find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
+
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/ncnn/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/clipper
+)
+
+add_executable(test_model test_model_loading.cpp)
+
+target_link_libraries(test_model
+    Qt5::Core
+    Qt5::Widgets
+    durian-ocr
+    ncnn
+)
